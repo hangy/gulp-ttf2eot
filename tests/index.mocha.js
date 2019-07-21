@@ -91,7 +91,7 @@ describe('gulp-ttf2eot conversion', function() {
 
           StreamTest[version].fromObjects([new Vinyl({
             path: 'bibabelula.foo',
-            contents: new Buffer('ohyeah'),
+            contents: Buffer.from('ohyeah'),
           })])
           .pipe(ttf2eot())
           .pipe(StreamTest[version].toObjects(function(err, objs) {

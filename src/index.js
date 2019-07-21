@@ -21,7 +21,7 @@ function ttf2eotTransform() {
 
     // Use the buffered content
     try {
-      buf = new Buffer(ttf2eot(new Uint8Array(buf)).buffer);
+      buf = Buffer.from(ttf2eot(new Uint8Array(buf)).buffer);
       return cb(null, buf);
     } catch(err2) {
       return cb(new PluginError(PLUGIN_NAME, err2, { showStack: true }));
@@ -74,7 +74,7 @@ function ttf2eotGulp(options) {
     // Buffers
     if(file.isBuffer()) {
       try {
-        file.contents = new Buffer(ttf2eot(
+        file.contents = Buffer.from(ttf2eot(
           new Uint8Array(file.contents)
         ).buffer);
       } catch(err) {
